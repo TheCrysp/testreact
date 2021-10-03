@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t babuwa/testreact -f Dockerfile.dev .
+
+script:
+  - docker run babuwa/testreact npm run test -- --coverage
